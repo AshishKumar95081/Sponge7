@@ -1,5 +1,5 @@
 
-import dotenv from "dotenv";
+
 import { clerkMiddleware } from "@clerk/express";
 import fileUpload from "express-fileupload";
 import path from "path";
@@ -8,6 +8,7 @@ import fs from "fs";
 import { createServer } from "http";
 import cron from "node-cron";
 const express = require('express');
+require('dotenv').config();
 
 
 

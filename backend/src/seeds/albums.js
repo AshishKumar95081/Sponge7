@@ -15,70 +15,7 @@ const seedDatabase = async () => {
 
 		// First, create all songs
 		const createdSongs = await Song.insertMany([
-			{
-				title: "City Rain",
-				artist: "Urban Echo",
-				imageUrl: "/cover-images/7.jpg",
-				audioUrl: "/songs/7.mp3",
-				plays: Math.floor(Math.random() * 5000),
-				duration: 39, // 0:39
-			},
-			{
-				title: "Neon Lights",
-				artist: "Night Runners",
-				imageUrl: "/cover-images/5.jpg",
-				audioUrl: "/songs/5.mp3",
-				plays: Math.floor(Math.random() * 5000),
-				duration: 36, // 0:36
-			},
-			{
-				title: "Urban Jungle",
-				artist: "City Lights",
-				imageUrl: "/cover-images/15.jpg",
-				audioUrl: "/songs/15.mp3",
-				plays: Math.floor(Math.random() * 5000),
-				duration: 36, // 0:36
-			},
-			{
-				title: "Neon Dreams",
-				artist: "Cyber Pulse",
-				imageUrl: "/cover-images/13.jpg",
-				audioUrl: "/songs/13.mp3",
-				plays: Math.floor(Math.random() * 5000),
-				duration: 39, // 0:39
-			},
-			{
-				title: "Summer Daze",
-				artist: "Coastal Kids",
-				imageUrl: "/cover-images/4.jpg",
-				audioUrl: "/songs/4.mp3",
-				plays: Math.floor(Math.random() * 5000),
-				duration: 24, // 0:24
-			},
-			{
-				title: "Ocean Waves",
-				artist: "Coastal Drift",
-				imageUrl: "/cover-images/9.jpg",
-				audioUrl: "/songs/9.mp3",
-				plays: Math.floor(Math.random() * 5000),
-				duration: 28, // 0:28
-			},
-			{
-				title: "Crystal Rain",
-				artist: "Echo Valley",
-				imageUrl: "/cover-images/16.jpg",
-				audioUrl: "/songs/16.mp3",
-				plays: Math.floor(Math.random() * 5000),
-				duration: 39, // 0:39
-			},
-			{
-				title: "Starlight",
-				artist: "Luna Bay",
-				imageUrl: "/cover-images/10.jpg",
-				audioUrl: "/songs/10.mp3",
-				plays: Math.floor(Math.random() * 5000),
-				duration: 30, // 0:30
-			},
+			
 			{
 				title: "Stay With Me",
 				artist: "Sarah Mitchell",
@@ -131,20 +68,7 @@ const seedDatabase = async () => {
 
 		// Create albums with references to song IDs
 		const albums = [
-			{
-				title: "Urban Nights",
-				artist: "Various Artists",
-				imageUrl: "/albums/1.jpg",
-				releaseYear: 2024,
-				songs: createdSongs.slice(0, 4).map((song) => song._id),
-			},
-			{
-				title: "Coastal Dreaming",
-				artist: "Various Artists",
-				imageUrl: "/albums/2.jpg",
-				releaseYear: 2024,
-				songs: createdSongs.slice(4, 8).map((song) => song._id),
-			},
+			
 			{
 				title: "Midnight Sessions",
 				artist: "Various Artists",

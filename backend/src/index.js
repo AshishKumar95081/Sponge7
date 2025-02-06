@@ -1,5 +1,5 @@
-
-
+import express from "express";
+import dotenv from "dotenv";
 import { clerkMiddleware } from "@clerk/express";
 import fileUpload from "express-fileupload";
 import path from "path";
@@ -7,9 +7,6 @@ import cors from "cors";
 import fs from "fs";
 import { createServer } from "http";
 import cron from "node-cron";
-const express = require('express');
-require('dotenv').config();
-
 
 
 import { initializeSocket } from "./lib/socket.js";
@@ -22,11 +19,13 @@ import songRoutes from "./routes/song.route.js";
 import albumRoutes from "./routes/album.route.js";
 import statRoutes from "./routes/stat.route.js";
 
-dotenv.config();
+
+
+
 
 const __dirname = path.resolve();
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT||5000;
 
 const httpServer = createServer(app);
 initializeSocket(httpServer);
@@ -88,5 +87,27 @@ app.use((err, req, res, next) => {
 
 httpServer.listen(PORT, () => {
 	console.log("Server is running on port " + PORT);
+	console.log("http://localhost:" + PORT);
 	connectDB();
 });
+
+
+
+
+
+// Load environment variables
+
+
+
+
+
+// Middleware: Ensure Clerk Secret Key is loaded
+if (!process.env.CLERK_SECRET_KEY) {
+  throw new Error("Missing Clerk Secret Key. Check your .env file.");
+}
+
+// Protect routes with Clerk authentication
+app.get("/protected", (req, res) => {
+  res.json({ message: "You are authenticated!" });
+});
+
